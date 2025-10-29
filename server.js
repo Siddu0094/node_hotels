@@ -13,6 +13,7 @@
 
 const express=require('express')
 const app=express()
+require('dotenv').config()
 const db=require('./db')
 
 const bodyparser=require('body-parser')
@@ -20,7 +21,6 @@ const bodyparser=require('body-parser')
 const personroutes=require('./routes/personRoutes')
 const menuroutes=require('./routes/menuRoutes')
 app.use(bodyparser.json())
-
 app.get('/',(req,res)=>{
     res.end('Welcome to our Hotel')
 })
@@ -28,8 +28,8 @@ app.get('/',(req,res)=>{
 app.use('/person',personroutes)
 app.use('/menu',menuroutes)
 
+const PORT= process.env.PORT || 3000
 
-
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log('server is running on port 3000')
 })

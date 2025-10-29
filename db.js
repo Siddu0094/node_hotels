@@ -1,11 +1,11 @@
 const mongoose=require('mongoose')
 
 
-const mongoburl= "mongodb://127.0.0.1:27017/hotels"
-
+//const mongoburl= "mongodb://127.0.0.1:27017/hotels"
+const mongourl=process.env.MONGODB_URL
 //mongodb connections
 
-mongoose.connect(mongoburl,{
+mongoose.connect(mongourl,{
     useNewUrlParser:true,
     useUnifiedTopology:true,
 
